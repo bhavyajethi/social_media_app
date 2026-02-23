@@ -13,7 +13,7 @@ from . import models, schemas
 from .database import engine, SessionLocal
 from .database import engine, get_db
 from . import utils
-from .routers import post, users
+from .routers import post, users, auth
 
 load_dotenv()
 
@@ -77,6 +77,7 @@ def find_index_post(id):
 
 app.include_router(post.router)
 app.include_router(users.router)
+app.include_router(auth.router)
 
 # @app -> is a decorator, to Connect function to API
 # .get -> http method to get data to user
